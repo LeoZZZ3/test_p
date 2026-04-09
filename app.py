@@ -3,9 +3,10 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def index():
     return "Salut", 200, {"Content-Type": "text/plain"}
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
