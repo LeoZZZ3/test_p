@@ -8,6 +8,12 @@ app = Flask(__name__)
 def index():
     return "Salut", 200, {"Content-Type": "text/plain"}
 
+@app.route("/random-number", methods=["GET"])
+def random_number():
+    import random
+    number = random.randint(1, 100)
+    return str(number), 200, {"Content-Type": "text/plain"}
+  
 @app.route("/actual_hours", methods=["GET"])
 def actual_hours():
     current_hour = datetime.datetime.now().time().strftime("%H:%M:%S")
